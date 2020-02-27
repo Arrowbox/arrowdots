@@ -1,0 +1,5 @@
+for filename in $ZDOTDIR/interactive/*.zsh; do
+    . $filename
+done
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
