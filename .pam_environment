@@ -1,0 +1,1 @@
+ZDOTDIR DEFAULT=/home/@{PAM_USER}/.config/zsh
