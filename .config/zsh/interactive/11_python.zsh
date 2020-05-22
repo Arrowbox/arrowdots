@@ -4,4 +4,4 @@ syspip(){
    PIP_REQUIRE_VIRTUALENV="" pip "$@"
 }
 
-source /usr/local/bin/virtualenvwrapper.sh 
+source $(locate virtualenvwrapper.sh)
