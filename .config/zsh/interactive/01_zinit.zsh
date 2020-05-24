@@ -12,19 +12,25 @@ zinit snippet PZTM::utility
 zinit snippet PZTM::completion
 zinit snippet PZTM::history
 
+zinit ice wait lucid from"gh-r" as"program"
+zinit light junegunn/fzf-bin
+
 zinit cdclear -q
 
 zinit ice wait lucid as"completion"
 zinit snippet https://github.com/git/git/blob/master/contrib/completion/git-completion.zsh
+
+zinit ice wait lucid as"completion"
+zinit snippet https://github.com/junegunn/fzf/blob/master/shell/completion.zsh
+
+zinit ice wait lucid
+zinit snippet https://github.com/junegunn/fzf/blob/master/shell/key-bindings.zsh
 
 zinit ice wait lucid as"program" pick"wd.sh" atload"wd() { source wd.sh }"
 zinit light mfaerevaag/wd
 
 zinit ice wait lucid from"gh-r" bpick"*linux-amd64" as"program" mv'direnv* -> direnv' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
 zinit load direnv/direnv
-
-zinit ice wait lucid from"gh-r" as"program"
-zinit light junegunn/fzf-bin
 
 zinit ice wait lucid atload'_zsh_autosuggest_start'
 zinit light zsh-users/zsh-autosuggestions
