@@ -1,3 +1,7 @@
+if [[ -v ZSH_PROFILE_STARTUP ]]; then
+    zmodload zsh/zprof
+fi
+
 skip_global_compinit=1
 
 export XDG_CONFIG_HOME=$HOME/.config

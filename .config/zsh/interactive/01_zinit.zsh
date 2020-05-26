@@ -8,9 +8,15 @@ ZINIT[SNIPPETS_DIR]="$ZINIT[HOME]/snippets"
 
 source $ZINIT[BIN]/zinit.zsh
 
-zinit snippet PZTM::utility
-zinit snippet PZTM::completion
+# Load before prompt to ensure history files are setup
+zinit ice lucid
 zinit snippet PZTM::history
+
+zinit ice wait lucid blockf
+zinit snippet PZTM::utility
+
+zinit ice wait lucid blockf
+zinit snippet PZTM::completion
 
 zinit ice wait lucid from"gh-r" as"program"
 zinit light junegunn/fzf-bin
@@ -32,8 +38,12 @@ zinit light mfaerevaag/wd
 zinit ice wait lucid from"gh-r" bpick"*linux-amd64" as"program" mv'direnv* -> direnv' atclone'./direnv hook zsh > zhook.zsh' atpull'%atclone' src"zhook.zsh"
 zinit load direnv/direnv
 
-zinit ice wait lucid atload'_zsh_autosuggest_start'
-zinit light zsh-users/zsh-autosuggestions
-
 zinit ice wait lucid blockf atpull'zinit creinstall -q .' atload'zicompinit; zicdreplay'
 zinit light zsh-users/zsh-completions
+
+# No plugins with completions after the 'zicompinit; zicdreplay'
+zinit ice wait lucid pick'virtualenvwrapper.sh'
+zinit light /usr/share/virtualenvwrapper/
+
+zinit ice wait lucid atload'!_zsh_autosuggest_start; bindkey $ZSH_AUTOSUGGEST_ACCEPT_KEY autosuggest-accept'
+zinit light zsh-users/zsh-autosuggestions

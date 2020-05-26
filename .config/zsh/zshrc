@@ -1,7 +1,3 @@
-if [[ -v ZSH_PROFILE_STARTUP ]]; then
-    zmodload zsh/zprof
-fi
-
 for filename in $ZDOTDIR/interactive/*.zsh; do
     . $filename
 done
