@@ -409,6 +409,8 @@ zinit light romkatv/powerlevel10k
       where=${(V)VCS_STATUS_TAG}
     fi
 
+    # Remove my name from the prefix
+    where=${where/#jmessenger/ }
     # If local branch name or tag is at most 32 characters long, show it in full.
     # Otherwise show the first 12 … the last 12.
     (( $#where > 32 )) && where[13,-13]="…"
