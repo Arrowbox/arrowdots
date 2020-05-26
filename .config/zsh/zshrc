@@ -1,4 +1,4 @@
-for filename in $ZDOTDIR/interactive/*.zsh; do
+for filename in $ZDOTDIR/zshrc.d/*.zsh; do
     . $filename
 done
 
